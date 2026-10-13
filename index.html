@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090807">
+  <title>Aarav & Isabella | Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="locked">
+
+<canvas id="particles"></canvas>
+
+<!-- ENVELOPE -->
+<div id="intro">
+  <div class="frame"></div>
+  <div class="envelope-wrap">
+    <p class="eyebrow">A celebration of love</p>
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open wedding invitation">
+      <div class="envelope-back"></div>
+      <div class="letter">
+        <small>TOGETHER WITH THEIR FAMILIES</small>
+        <strong id="miniNames">A & I</strong>
+        <small>INVITE YOU TO CELEBRATE</small>
+      </div>
+      <div class="flap"></div>
+      <div class="envelope-front"></div>
+      <div class="seal" id="envelopeSeal">A</div>
+    </div>
+    <p id="openHint">TOUCH TO OPEN THE INVITATION</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-ring"></div>
+  <div class="hero-content">
+    <p class="eyebrow reveal">Together with our families</p>
+    <div class="hero-ornament reveal">✦</div>
+    <h1 class="reveal">
+      <span id="brideName">Isabella</span>
+      <span class="amp">&</span>
+      <span id="groomName">Aarav</span>
+    </h1>
+    <div class="hero-ornament reveal">❧</div>
+    <p class="hero-caption reveal">Two hearts · One beautiful journey</p>
+  </div>
+  <div class="scroll-cue">THE CELEBRATION <span>⌄</span></div>
+</header>
+
+<!-- WELCOME -->
+<section class="section welcome">
+  <div class="inner reveal">
+    <p class="eyebrow">A moment to remember</p>
+    <h2 class="heading">A beautiful beginning</h2>
+    <div class="rule"></div>
+    <p class="copy">Some moments become memories. Some memories become stories. And some stories become forever.</p>
+    <div class="message">
+      <p>"The best thing to hold onto in life is each other."</p>
+      <div class="rule"></div>
+      <p style="font-size:21px">Your presence will make our celebration truly special.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SCRATCH DATE -->
+<section class="scratch-section" id="scratchSection">
+  <canvas id="celebrationCanvas"></canvas>
+  <div class="scratch-inner reveal">
+    <p class="eyebrow">A little surprise awaits</p>
+    <h2 class="scratch-heading">Discover Our Special Day</h2>
+    <p class="scratch-subtitle">Every beautiful story has a special date. Scratch the golden surface to reveal ours.</p>
+    <div class="scratch-ornament">✦</div>
+
+    <div class="scratch-shell">
+      <div class="scratch-inner-border">
+        <div class="scratch-card" id="scratchCard">
+          <div class="scratch-content">
+            <p class="small-label">The day our forever begins</p>
+            <h3>Save the Date</h3>
+            <div class="revealed-date" id="scratchDateDay">20</div>
+            <div class="revealed-date-month" id="scratchDateMonth">DECEMBER 2026</div>
+            <p class="revealed-date-note">A day of love · A lifetime of memories</p>
+          </div>
+          <canvas id="scratchCanvas" aria-label="Scratch to reveal the wedding date"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <p class="scratch-hint" id="scratchHint"><span>✧</span> SCRATCH HERE WITH YOUR FINGER OR MOUSE</p>
+    <div class="scratch-progress"><div class="scratch-progress-bar" id="scratchProgressBar"></div></div>
+
+    <div id="celebrationMessage">
+      <p class="scratch-ornament">✦ ✧ ✦</p>
+      <p class="scratch-heading celebration-title">It's a Date!</p>
+      <p class="scratch-subtitle">Our forever begins on this beautiful day. We can't wait to celebrate with you.</p>
+    </div>
+    <button class="scratch-restart" id="scratchRestart" type="button">Scratch Again</button>
+  </div>
+</section>
+
+<!-- FESTIVITIES -->
+<section class="section festivities" id="celebrations">
+  <div class="inner">
+    <p class="eyebrow reveal">Save these beautiful moments</p>
+    <h2 class="heading reveal">The Wedding Festivities</h2>
+    <div class="rule reveal"></div>
+    <p class="events-intro reveal">Three celebrations. Countless memories. One unforgettable beginning.</p>
+    <div class="events" id="events"></div>
+  </div>
+</section>
+
+<!-- CODED PALACE -->
+<section class="destination" id="destination">
+  <div class="destination-inner">
+    <div class="destination-header reveal">
+      <h2 class="destination-title" id="venueName">The Aurelia Grand Estate</h2>
+      <p class="destination-location" id="venueLocation">Udaipur · Rajasthan · India</p>
+    </div>
+
+    <div class="palace-scene reveal" id="palaceScene">
+      <svg class="palace-svg" viewBox="0 0 1896 830" preserveAspectRatio="xMidYMid slice" role="img" aria-label="An animated golden-lit palace at night with a moon, gardens and reflecting forecourt">
+        <defs>
+          <linearGradient id="skyGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#100e08"/>
+            <stop offset=".55" stop-color="#1c170d"/>
+            <stop offset="1" stop-color="#342515"/>
+          </linearGradient>
+          <radialGradient id="moonGradient">
+            <stop offset="0" stop-color="#fff0bc"/>
+            <stop offset=".7" stop-color="#f1c66f"/>
+            <stop offset="1" stop-color="#ba8538"/>
+          </radialGradient>
+          <filter id="moonGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="15" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="softGlow" x="-150%" y="-150%" width="400%" height="400%">
+            <feGaussianBlur stdDeviation="7"/>
+          </filter>
+          <linearGradient id="wallGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop stop-color="#251c10"/><stop offset=".25" stop-color="#564022"/>
+            <stop offset=".5" stop-color="#382817"/><stop offset=".75" stop-color="#614727"/>
+            <stop offset="1" stop-color="#21190e"/>
+          </linearGradient>
+          <linearGradient id="roofGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop stop-color="#745126"/><stop offset=".25" stop-color="#c29247"/>
+            <stop offset=".45" stop-color="#4c351b"/><stop offset="1" stop-color="#22180d"/>
+          </linearGradient>
+          <linearGradient id="windowGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#5c3b17"/><stop offset=".45" stop-color="#ffcf71"/>
+            <stop offset=".7" stop-color="#9c6729"/><stop offset="1" stop-color="#3a2712"/>
+          </linearGradient>
+          <linearGradient id="glassShine">
+            <stop stop-color="#fff0c0" stop-opacity="0"/>
+            <stop offset=".5" stop-color="#fff0c0" stop-opacity=".65"/>
+            <stop offset="1" stop-color="#fff0c0" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="pillarGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop stop-color="#3a2915"/><stop offset=".35" stop-color="#d2a354"/>
+            <stop offset=".55" stop-color="#60421f"/><stop offset=".8" stop-color="#bd914a"/>
+            <stop offset="1" stop-color="#281b0d"/>
+          </linearGradient>
+          <linearGradient id="doorGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop stop-color="#1c1309"/><stop offset=".5" stop-color="#f0be65"/>
+            <stop offset="1" stop-color="#1c1309"/>
+          </linearGradient>
+          <linearGradient id="groundGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop stop-color="#4a3720"/><stop offset=".25" stop-color="#241d13"/>
+            <stop offset="1" stop-color="#0a0b08"/>
+          </linearGradient>
+          <linearGradient id="poolGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop stop-color="#9e793e" stop-opacity=".65"/>
+            <stop offset=".35" stop-color="#293027" stop-opacity=".9"/>
+            <stop offset="1" stop-color="#111c18"/>
+          </linearGradient>
+          <radialGradient id="leafGradient">
+            <stop stop-color="#827642"/><stop offset=".55" stop-color="#39402a"/>
+            <stop offset="1" stop-color="#171c11"/>
+          </radialGradient>
+          <linearGradient id="lightSweep">
+            <stop offset="0" stop-color="#fff0c0" stop-opacity="0"/>
+            <stop offset=".5" stop-color="#fff0c0" stop-opacity=".13"/>
+            <stop offset="1" stop-color="#fff0c0" stop-opacity="0"/>
+          </linearGradient>
+
+          <g id="window">
+            <rect class="arch-window" width="72" height="146" rx="1"/>
+            <rect class="window-glass" x="6" y="7" width="60" height="132"/>
+            <path class="window-mullion" d="M36 0V146M0 73H72"/>
+            <path class="window-shine" d="M8 8H28L12 135H6Z"/>
+            <rect class="arch-window-frame" x="4" y="4" width="64" height="138"/>
+          </g>
+          <g id="smallWindow">
+            <rect class="arch-window" width="48" height="102"/>
+            <path class="window-mullion" d="M24 0V102M0 51H48"/>
+            <path class="window-shine" d="M5 5H18L8 96H3Z" fill="#fff0c0" opacity=".35"/>
+          </g>
+          <g id="tree">
+            <path class="tree-trunk" d="M0 0V-115"/>
+            <path class="tree-trunk" d="M0 -57L-30 -86M0 -72L29 -101M0 -35L-24 -51"/>
+            <circle class="tree-crown" cx="0" cy="-130" r="34"/>
+            <circle class="tree-crown" cx="-25" cy="-111" r="25"/>
+            <circle class="tree-crown" cx="25" cy="-110" r="26"/>
+            <circle class="tree-crown" cx="-12" cy="-151" r="24"/>
+            <circle class="tree-crown" cx="17" cy="-151" r="23"/>
+            <circle class="tree-light" cx="-15" cy="-137" r="3"/>
+            <circle class="tree-light" cx="20" cy="-117" r="2.5"/>
+            <circle class="tree-light" cx="5" cy="-159" r="2"/>
+            <circle class="tree-light" cx="-29" cy="-108" r="2"/>
+          </g>
+          <g id="lantern">
+            <ellipse cx="0" cy="0" rx="21" ry="12" fill="#e4b45c" opacity=".16" filter="url(#softGlow)"/>
+            <path d="M-10 -24L-6 -35H6L10 -24Z" fill="#87602b" stroke="#e4b45c"/>
+            <rect x="-10" y="-24" width="20" height="30" fill="#3c2a13" stroke="#d6ad61" stroke-width="2"/>
+            <rect class="lantern-glow" x="-5" y="-19" width="10" height="19" rx="2"/>
+            <path d="M-14 -24H14M-8 6H8M0 6V22" fill="none" stroke="#b58a45" stroke-width="3"/>
+          </g>
+        </defs>
+
+        <!-- Night sky -->
+        <rect class="palace-sky" width="1896" height="830"/>
+        <circle class="moon" cx="1480" cy="130" r="48"/>
+        <circle cx="1463" cy="112" r="8" fill="#a97937" opacity=".12"/>
+        <circle cx="1498" cy="145" r="12" fill="#a97937" opacity=".12"/>
+        <circle cx="1487" cy="100" r="5" fill="#a97937" opacity=".12"/>
+
+        <!-- Distant landscape -->
+        <path d="M0 455Q170 390 350 442T720 430T1080 433T1460 410T1896 438V650H0Z" fill="#17170f"/>
+        <path d="M0 490Q230 435 450 470T900 455T1350 470T1896 450V660H0Z" fill="#211b11"/>
+
+        <!-- Palace structure -->
+        <g id="palaceBuilding">
+          <rect class="arch-wall" x="110" y="425" width="1676" height="182"/>
+          <rect class="arch-trim-soft" x="108" y="419" width="1680" height="7"/>
+          <path class="arch-trim" d="M110 428H1786M120 601H1776"/>
+          <rect class="arch-wall" x="260" y="340" width="1376" height="267"/>
+          <rect class="arch-roof" x="250" y="332" width="1396" height="13"/>
+          <path class="arch-trim" d="M250 332H1646"/>
+          <rect class="arch-roof" x="250" y="356" width="1396" height="8"/>
+
+          <rect class="arch-wall" x="645" y="282" width="606" height="325"/>
+          <rect class="arch-roof" x="630" y="272" width="636" height="16"/>
+          <path class="arch-trim" d="M630 273H1266"/>
+          <rect class="arch-roof" x="642" y="294" width="612" height="9"/>
+
+          <rect class="arch-wall" x="755" y="260" width="386" height="348"/>
+          <rect class="arch-roof" x="745" y="246" width="406" height="18"/>
+          <path class="arch-trim" d="M745 246H1151"/>
+          <rect class="arch-roof" x="755" y="264" width="386" height="12"/>
+
+          <!-- Central pediment -->
+          <path class="arch-roof" d="M745 246L948 155L1151 246Z"/>
+          <path d="M762 240L948 165L1134 240" fill="none" stroke="#e6b75e" stroke-width="4"/>
+          <path d="M779 237L948 171L1117 237" fill="none" stroke="#4c3216" stroke-width="2"/>
+          <path d="M808 236L948 183L1088 236" fill="none" stroke="#c49349" stroke-width="1.5"/>
+
+          <path class="arch-roof" d="M645 282L630 272H1266L1251 282Z"/>
+          <path class="arch-trim" d="M630 273H1266"/>
+          <path class="arch-trim-soft" d="M110 419H1786"/>
+
+          <!-- Symmetrical windows -->
+          <g>
+            <use href="#window" x="177" y="437" transform="translate(0 0) scale(1 .88)"/>
+            <use href="#window" x="345" y="400" transform="translate(0 0) scale(1 1.05)"/>
+            <use href="#window" x="453" y="400" transform="translate(0 0) scale(1 1.05)"/>
+            <use href="#window" x="561" y="400" transform="translate(0 0) scale(1 1.05)"/>
+            <use href="#window" x="1225" y="400" transform="translate(0 0) scale(1 1.05)"/>
+            <use href="#window" x="1333" y="400" transform="translate(0 0) scale(1 1.05)"/>
+            <use href="#window" x="1441" y="400" transform="translate(0 0) scale(1 1.05)"/>
+            <use href="#window" x="1647" y="437" transform="translate(0 0) scale(1 .88)"/>
+          </g>
+
+          <use href="#smallWindow" x="680" y="315"/>
+          <use href="#smallWindow" x="1168" y="315"/>
+
+          <!-- Central glass entrance -->
+          <g transform="translate(845 295)">
+            <rect class="arch-window" width="206" height="273"/>
+            <rect class="window-glass" x="8" y="8" width="190" height="257"/>
+            <path class="window-mullion" d="M51 0V273M103 0V273M155 0V273M0 137H206"/>
+            <path class="window-shine" d="M12 8H55L30 264H10Z"/>
+            <rect class="arch-window-frame" x="4" y="4" width="198" height="265"/>
+          </g>
+
+          <!-- Main entrance door -->
+          <path class="door" d="M886 565V496A62 62 0 0 1 1010 496V565Z"/>
+          <path class="door-light" d="M897 565V497A51 51 0 0 1 999 497V565Z"/>
+          <path d="M908 565V499A40 40 0 0 1 988 499V565" fill="none" stroke="#70491e" stroke-width="4"/>
+          <circle cx="981" cy="530" r="3" fill="#fff0bb"/>
+
+          <!-- Columns -->
+          <g>
+            <rect class="pillar" x="823" y="278" width="17" height="294"/>
+            <rect class="pillar" x="1056" y="278" width="17" height="294"/>
+            <rect class="pillar" x="814" y="277" width="35" height="12"/>
+            <rect class="pillar" x="1047" y="277" width="35" height="12"/>
+            <rect class="pillar" x="814" y="565" width="35" height="12"/>
+            <rect class="pillar" x="1047" y="565" width="35" height="12"/>
+            <path class="pillar-light" d="M828 294V559M1061 294V559"/>
+          </g>
+          <g>
+            <rect class="pillar" x="326" y="372" width="10" height="231"/>
+            <rect class="pillar" x="420" y="372" width="10" height="231"/>
+            <rect class="pillar" x="1435" y="372" width="10" height="231"/>
+            <rect class="pillar" x="1529" y="372" width="10" height="231"/>
+          </g>
+
+          <path class="arch-trim" d="M260 356H1636M645 294H1251M755 276H1141"/>
+          <path class="arch-trim-soft" d="M745 246L948 155L1151 246"/>
+        </g>
+
+        <!-- Forecourt and reflecting pools -->
+        <path class="ground" d="M0 600H1896V830H0Z"/>
+        <path d="M0 618L790 618L948 830H0Z" fill="#222016"/>
+        <path d="M1896 618L1106 618L948 830H1896Z" fill="#222016"/>
+
+        <path class="pool" d="M0 642L575 632L817 678L0 785Z"/>
+        <path class="pool" d="M1896 642L1321 632L1079 678L1896 785Z"/>
+        <path class="pool" d="M690 620H1206L1388 830H508Z" fill-opacity=".48"/>
+        <path class="pool-ripple" d="M0 678L575 650L790 686"/>
+        <path class="pool-ripple" d="M1896 678L1321 650L1106 686"/>
+        <path class="pool-ripple" d="M0 722L490 678"/>
+        <path class="pool-ripple" d="M1896 722L1406 678"/>
+        <path d="M882 608L1014 608L1168 830H728Z" fill="#b38c4b" opacity=".09"/>
+        <path d="M905 610L991 610L1060 830H836Z" fill="#e1bf72" opacity=".06"/>
+
+        <!-- Steps -->
+        <path d="M790 586H1106L1122 598H774Z" fill="#b08a4b"/>
+        <path d="M767 599H1129L1145 612H751Z" fill="#65502e"/>
+        <path d="M745 612H1151L1172 625H724Z" fill="#a4834a"/>
+        <path d="M719 625H1177L1199 638H697Z" fill="#493821"/>
+
+        <!-- Garden beds -->
+        <path class="garden" d="M0 597H320L280 650H0Z"/>
+        <path class="garden" d="M1576 597H1896V650H1616Z"/>
+        <path class="garden" d="M300 603H590L565 632H260Z"/>
+        <path class="garden" d="M1306 603H1596L1636 632H1331Z"/>
+
+        <!-- Trees -->
+        <use href="#tree" x="78" y="644" transform="translate(0 0) scale(1.05)"/>
+        <use href="#tree" x="242" y="615" transform="translate(0 0) scale(.82)"/>
+        <use href="#tree" x="652" y="617" transform="translate(0 0) scale(.78)"/>
+        <use href="#tree" x="1244" y="617" transform="translate(0 0) scale(.78)"/>
+        <use href="#tree" x="1654" y="615" transform="translate(0 0) scale(.82)"/>
+        <use href="#tree" x="1818" y="644" transform="translate(0 0) scale(1.05)"/>
+
+        <!-- Lanterns -->
+        <use href="#lantern" x="42" y="742"/>
+        <use href="#lantern" x="202" y="706" transform="translate(0 0) scale(.8)"/>
+        <use href="#lantern" x="446" y="688" transform="translate(0 0) scale(.78)"/>
+        <use href="#lantern" x="665" y="673" transform="translate(0 0) scale(.75)"/>
+        <use href="#lantern" x="824" y="652" transform="translate(0 0) scale(.7)"/>
+        <use href="#lantern" x="1072" y="652" transform="translate(0 0) scale(.7)"/>
+        <use href="#lantern" x="1231" y="673" transform="translate(0 0) scale(.75)"/>
+        <use href="#lantern" x="1450" y="688" transform="translate(0 0) scale(.78)"/>
+        <use href="#lantern" x="1694" y="706" transform="translate(0 0) scale(.8)"/>
+        <use href="#lantern" x="1854" y="742"/>
+
+        <rect class="palace-shimmer" x="-500" y="0" width="650" height="650"/>
+      </svg>
+
+      <canvas class="palace-sky-canvas" id="palaceFireworks" aria-hidden="true"></canvas>
+    </div>
+
+    <p class="palace-caption reveal">A night to remember</p>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="section closing">
+  <div class="inner reveal">
+    <p class="eyebrow">With love, from our families</p>
+    <div class="closing-mark"><span id="monogram">A & I</span></div>
+    <h2 id="closingNames">Aarav & Isabella</h2>
+    <p class="copy">We look forward to celebrating love, laughter, and the beginning of a beautiful new chapter with you.</p>
+    <div class="rule"></div>
+    <p class="eyebrow closing-eyebrow">Until we meet on our special day</p>
+  </div>
+</section>
+
+<footer>MADE WITH LOVE · FOREVER BEGINS HERE</footer>
+
+</body>
+</html>
