@@ -10,7 +10,7 @@ const WEDDING = {
 
   events: [
     {
-      name: "Lagan",
+      name: "Haldi & Mehandi",
       date: "2026-11-21",
       time: "4:00 PM onwards",
       description: "A gathering of colour, music and joy.",
